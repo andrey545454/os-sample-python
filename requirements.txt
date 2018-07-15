@@ -2,4 +2,4 @@ gunicorn
 Flask
 vk
 rls-sdk
-random
+Random
