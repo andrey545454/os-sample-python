@@ -16,4 +16,7 @@ def checker_stats(text):
 #парсер по ссылке
 def steam_url(text):
     index=text.find('id')+3
-    return text[index:]
+    if text[-1]=='/':
+        return text[index:-1:]
+    else:
+        return text[index::]
