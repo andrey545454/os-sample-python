@@ -1,6 +1,5 @@
 from flask import Flask,request,json
 import messageHandler
-from settings import *
 
 application = Flask(__name__)
 
