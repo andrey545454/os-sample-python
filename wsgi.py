@@ -1,4 +1,5 @@
 from flask import Flask,request,json
+import messageHandler
 from settings import *
 
 application = Flask(__name__)
@@ -11,6 +12,7 @@ def proccessing():
     if data['type'] == 'confirmation':
         return confirmation_token
     elif data['type'] == 'message_new':
+        messageHandler.create_answer(data['object'], token)
         return 'ok'
 
 @application.route("/hello")
