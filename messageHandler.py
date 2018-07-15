@@ -29,7 +29,7 @@ def damerau_levenshtein_distance(s1, s2):
 
 
 def load_modules():
-   files = os.listdir("/Git-bot/os-sample-python/commands")
+   files = os.listdir("os-sample-python/commands")
    modules = filter(lambda x: x.endswith('.py'), files)
    for m in modules:
        importlib.import_module("commands." + m[0:-3])
