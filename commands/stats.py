@@ -4,7 +4,7 @@ from rocketstats import checker_stats
 
 def stats(token,user_id,stroka='',peer_id=''):
     mas=checker_stats(stroka)
-    message='1c-{0}, 2c-{1}, 3c-{2}, 3cc-{3}'.format(mas)
+    message=str(mas)
     return message,''
 
 
