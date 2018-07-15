@@ -1,0 +1,17 @@
+from rls.rocket import RocketLeague
+
+def checker_stats(text):
+    url=steam_url(text)
+    rocket = RocketLeague(api_key='5B5H59SRROQSENSZAHNHJM2XQ1VFKK1O')
+    info = rocket.players.player(id=url, platform=1).json()
+    rankedSeasons = info['rankedSeasons']
+    currentSeason = rankedSeasons[max(rankedSeasons)]
+    duelRank = currentSeason['10']['rankPoints']
+    doubleRank = currentSeason['11']['rankPoints']
+    soloStandartRank = currentSeason['12']['rankPoints']
+    StandartRank = currentSeason['13']['rankPoints']
+    return duelRank,doubleRank,soloStandartRank,StandartRank
+
+def steam_url(text):
+    index=text.find('id')+3
+    return text[index:-1:]
