@@ -10,5 +10,5 @@ def stats(token,user_id,stroka='',peer_id=''):
 
 stats_command=command_system.Command()
 stats_command.keys=['!стата']
-stats_command.description='Узнать количество поинтов 1с, 2c, 3c, 3cc [нужно вставить ссылку на стим-аккаунт][НЕ РАБОТАЕТ]'
+stats_command.description='Узнать количество поинтов 1с, 2c, 3c, 3cc [нужно вставить ссылку на стим-аккаунт]'
 stats_command.process = stats
