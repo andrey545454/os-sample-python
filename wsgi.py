@@ -17,7 +17,7 @@ def proccessing():
 
 @application.route("/hello")
 def hello():
-    return "Hello Flask bot!"
+    return "Flask bot is live!"
 
 if __name__ == "__main__":
     application.run()
