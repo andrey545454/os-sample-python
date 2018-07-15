@@ -1,5 +1,6 @@
 from rls.rocket import RocketLeague
 
+#работа с api от rocket league stats
 def checker_stats(text):
     url=steam_url(text)
     rocket = RocketLeague(api_key='5B5H59SRROQSENSZAHNHJM2XQ1VFKK1O')
@@ -12,6 +13,7 @@ def checker_stats(text):
     StandartRank = currentSeason['13']['rankPoints']
     return duelRank,doubleRank,soloStandartRank,StandartRank
 
+#парсер по ссылке
 def steam_url(text):
     index=text.find('id')+3
-    return text[index:-1:]
+    return text[index:]
