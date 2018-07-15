@@ -1,5 +1,5 @@
 import command_system
-from datachecker import datacheck,usercheck
+from stat_finder.datachecker import datacheck, usercheck
 from random import randint
 
 def pinok(token,user_id,stroka='',peer_id=''):

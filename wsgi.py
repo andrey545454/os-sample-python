@@ -1,6 +1,6 @@
 from flask import Flask,request,json
 import messageHandler
-from settings import *
+from settings.settings import token,confirmation_token
 
 application = Flask(__name__)
 

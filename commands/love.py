@@ -1,6 +1,6 @@
 import command_system
 from random import randint
-from datachecker import datacheck
+from stat_finder.datachecker import datacheck
 
 def love(token,user_id,stroka='',peer_id=''):
     name=datacheck(token,user_id)

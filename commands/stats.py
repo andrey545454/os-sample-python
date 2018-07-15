@@ -1,5 +1,5 @@
 import command_system
-from rocketstats import checker_stats
+from stat_finder.rocketstats import checker_stats
 
 
 def stats(token,user_id,stroka='',peer_id=''):
