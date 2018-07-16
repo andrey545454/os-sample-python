@@ -15,12 +15,13 @@ def spit(token,user_id,stroka='',peer_id=''):
     else:
         mas=usercheck(token,peer_id)['items']
         newmas=[]
+        #фильтруем от ситуации когда пользователь плюёт сам на себя
         for user in mas:
             if user['member_id']!=user_id and user['member_id']>0:
                 newmas.append(user)
-        random_user=newmas[randint(0,len(newmas)-1)]['member_id']
-        random_user=datacheck(token,random_user,'acc')
-        message=name+' плюнул в '+str(random_user)+' '+'&#127773;'
+        random_user_id=newmas[randint(0,len(newmas)-1)]['member_id']
+        random_user=datacheck(token,random_user_id,'acc')
+        message=name+' плюнул в @id'+str(random_user_id)+'({0})'.format(random_user)+' &#127773;'
     return message,''
 
 

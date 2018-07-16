@@ -17,7 +17,7 @@ def pinok(token,user_id,stroka='',peer_id=''):
                 newmas.append(user)
         random_user_id = newmas[randint(0,len(newmas)-1)]['member_id']
         random_user = datacheck(token,random_user_id, 'acc')
-        message = name+' пнул @id'+str(random_user_id)+'({0})'.format(random_user)+'&#127773;'
+        message = name+' пнул @id'+str(random_user_id)+'({0})'.format(random_user)+' &#127773;'
     return message, ''
 
 pinok_command=command_system.Command()
