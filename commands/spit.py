@@ -4,8 +4,13 @@ from random import randint
 
 def spit(token,user_id,stroka='',peer_id=''):
     name=datacheck(token,user_id)
+    #направленный плювок
     if stroka!='':
-        message=name+' плюнул в '+str(stroka).capitalize()+' '+'&#127773;'
+        if stroka[0].lower()=='в':
+            message=name+' плюнул в '+str(stroka[1::]).capitalize()+' '+'&#127773;'
+        else:
+            message=name+' плюнул в '+str(stroka).capitalize()+' '+'&#127773;'
+    #рандомный плювок
     else:
         mas=usercheck(token,peer_id)['items']
         newmas=[]
