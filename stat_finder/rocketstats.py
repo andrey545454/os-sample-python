@@ -2,6 +2,7 @@ from rls.rocket import RocketLeague
 
 #работа с api от rocket league stats
 def checker_stats(text):
+    #массив возможных рангов
     Ranks=['Unranked',
            'Bronze I',
            'Bronze II',
