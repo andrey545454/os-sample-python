@@ -3,7 +3,7 @@ from random import randint
 
 def biba(token,user_id,stroka='',peer_id=''):
     #подкрутка для меня
-    if user_id=='171859787':
+    if str(user_id)=='171859787':
         message='Твоя биба 100 см'
     else:
         message='Твоя биба '+str(randint(2,50))+'см'
