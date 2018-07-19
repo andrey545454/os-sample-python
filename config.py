@@ -1,3 +1,4 @@
+# файл для конфига Gunicorn
 import os
 
 workers = int(os.environ.get('GUNICORN_PROCESSES', '3'))

@@ -1,5 +1,7 @@
+# лист генерируемых команд
 command_list = []
 
+# непонятный код для генерации списка команд
 class Command:
    def __init__(self):
        self.__keys = []

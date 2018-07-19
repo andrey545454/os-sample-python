@@ -1,8 +1,11 @@
+# команда для ссылки на стрим покса
 import command_system
 
-def link(token,user_id,stroka='',peer_id=''):
+
+def link(token, user_id, stroka='', peer_id=''):
     message = 'Ссылочка на стрим: '+r'https://www.twitch.tv/poqx'
     return message, ''
+
 
 link_command = command_system.Command()
 
