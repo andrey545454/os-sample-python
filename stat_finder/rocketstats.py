@@ -1,4 +1,5 @@
 from rls.rocket import RocketLeague
+from settings.settings import RLApi_token as api_key
 
 #работа с api от rocket league stats
 def checker_stats(text):
