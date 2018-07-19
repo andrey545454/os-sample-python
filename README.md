@@ -1,6 +1,6 @@
-# Flask Sample Application
+# Flask Chat-bot
 
-This repository provides a sample Python web application implemented using the Flask web framework and hosted using ``gunicorn``. It is intended to be used to demonstrate deployment of Python web applications to OpenShift 3.
+This repository provides a sample Python web application(vk chat-bot) implemented using the Flask web framework and hosted using ``gunicorn``. It is intended to be used to demonstrate deployment of Python web applications to OpenShift 3.
 
 ## Implementation Notes
 
@@ -35,3 +35,5 @@ If needing to select a specific Python version when using ``oc new-app``, you sh
 ```
 oc new-app python:2.7~https://github.com/OpenShiftDemos/os-sample-python.git
 ```
+## My VK profile for questions:
+* https://vk.com/andrey545454
