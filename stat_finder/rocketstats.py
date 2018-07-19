@@ -26,7 +26,7 @@ def checker_stats(text):
            'Grand Champion'
            ]
     url=steam_url(text)
-    rocket = RocketLeague(api_key='5B5H59SRROQSENSZAHNHJM2XQ1VFKK1O')
+    rocket = RocketLeague(api_key=str(api_key))
     info = rocket.players.player(id=url, platform=1).json()
     rankedSeasons = info['rankedSeasons']
     currentSeason = rankedSeasons[max(rankedSeasons)]
