@@ -36,7 +36,7 @@ def load_modules():  # подгрузка модулей
         importlib.import_module("commands." + m[0:-3])
 
 
-def get_answer(body,token,user_id,peer_id):  # обработка команды
+def get_answer(body, token, user_id, peer_id):  # обработка команды
     message = ""
     attachment = ''
     distance = len(body)
@@ -50,14 +50,15 @@ def get_answer(body,token,user_id,peer_id):  # обработка команды
                 command = c
                 key = k
                 if distance == 0:
-                    message, attachment = c.process(token,user_id,message,peer_id)
+                    message, attachment = c.process(token, user_id, message, peer_id)
                     return message, attachment
     if distance < len(body)*0.4:
-        message, attachment = command.process(token,user_id,peer_id)
+        message, attachment = command.process(token, user_id, peer_id)
         message = 'Я понял ваш запрос как "%s"\n\n' % key + message
     return message, attachment
 
-def get_answer2(body,stroka,token,user_id,peer_id):
+
+def get_answer2(body, stroka, token, user_id, peer_id):  # обработка команды
     message = ""
     attachment = ''
     for c in command_list:
@@ -73,8 +74,8 @@ def create_answer(data, token):  # создание ответа на новое
     body=[str(s) for s in data['text'].lower().split(maxsplit=1)]  # деление сообщения пользователя
     if len(body)>1:
         # работаем с тем что он написал в сообщении вместе с командой
-        message, attachment = get_answer2(body[0],body[1],token,user_id,peer_id)
+        message, attachment = get_answer2(body[0], body[1], token, user_id, peer_id)
     else:
         # работаем только с командой
-        message, attachment = get_answer(data['text'].lower(),token,user_id,peer_id)
+        message, attachment = get_answer(data['text'].lower(), token, user_id, peer_id)
     vkapi.send_message(user_id,peer_id, token, message, attachment)  # отправляем сообщение благодаря vkapi

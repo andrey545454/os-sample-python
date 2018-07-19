@@ -5,10 +5,11 @@ from settings.settings import token,confirmation_token
 
 application = Flask(__name__)
 
+
 # декорирование функции для работы с пост запросами
 @application.route("/", methods = ['POST'])
 def proccessing():
-    data=json.loads(request.data)
+    data = json.loads(request.data)
     if 'type' not in data.keys():
         return 'not vk'
     if data['type'] == 'confirmation':
@@ -16,6 +17,7 @@ def proccessing():
     elif data['type'] == 'message_new':
         messageHandler.create_answer(data['object'], token)
         return 'ok'
+
 
 # по приколу сделал
 @application.route("/hello")
