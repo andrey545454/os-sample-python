@@ -1,5 +1,5 @@
 from rls.rocket import RocketLeague
-from settings.settings import RLApi_token as api_key
+from settings.settings import RLApi_token
 
 #работа с api от rocket league stats
 def checker_stats(text):
@@ -26,7 +26,7 @@ def checker_stats(text):
            'Grand Champion'
            ]
     url=steam_url(text)
-    rocket = RocketLeague(api_key=str(api_key))
+    rocket = RocketLeague(api_key=RLApi_token)
     info = rocket.players.player(id=url, platform=1).json()
     rankedSeasons = info['rankedSeasons']
     currentSeason = rankedSeasons[max(rankedSeasons)]
