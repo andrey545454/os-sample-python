@@ -1,6 +1,11 @@
 # файл для работы с rocketleaguestats.com
+from re import findall
 from rls.rocket import RocketLeague
 from settings.settings import RLApi_token
+
+
+def steam_url(text):  # парсер по ссылке steam профиля для распознавания id
+    return findall('\d+', text)[0]
 
 
 def checker_stats(text):  # распознавание рангов пользователя
@@ -36,12 +41,3 @@ def checker_stats(text):  # распознавание рангов пользо
     soloStandartRank = Ranks[currentSeason['12']['tier']]+'({})'.format(currentSeason['12']['rankPoints'])
     StandartRank = Ranks[currentSeason['13']['tier']]+'({})'.format(currentSeason['13']['rankPoints'])
     return duelRank,doubleRank,soloStandartRank,StandartRank
-
-
-def steam_url(text):  # парсер по ссылке steam профиля для распознавания id
-    index=text.find('id')+3
-    # если в конце ссылки присутствует / то убираем её
-    if text[-1]=='/':
-        return text[index:-1:]
-    else:
-        return text[index::]
