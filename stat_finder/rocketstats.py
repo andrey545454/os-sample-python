@@ -5,7 +5,12 @@ from settings.settings import RLApi_token
 
 
 def steam_url(text):  # парсер по ссылке steam профиля для распознавания id
-    return findall('\d+', text)[0]
+    if findall('/id/', text):  # если ссылка содержить /id/
+        id = text.index('/id/')
+        return text[id + 4:]
+    else:  # иначе в ссылке есть /profiles/
+        id = text.index('/profiles/')
+        return text[id + 10::]
 
 
 def checker_stats(text):  # распознавание рангов пользователя
