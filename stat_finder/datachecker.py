@@ -11,15 +11,11 @@ def user_list_check(token, peer_id):  # Распознавание списка 
 
 
 def admins_list_check(token, peer_id):  # Список админов беседы (P.S на всякий случай)
-    user_list = user_list_check(token, peer_id)
+    user_list = user_list_check(token, peer_id)['items']
     admins_list = []
     for user in user_list:
-        try:
-            if int(user['member_id']) > 0:
-                if user.get('is_admin') is not None:
-                    admins_list.append(user['member_id'])
-        except:
-            print(user_list)
-            break
+        if int(user['member_id']) > 0:
+            if user.get('is_admin') is not None:
+                admins_list.append(user['member_id'])
     del user_list
     return admins_list
