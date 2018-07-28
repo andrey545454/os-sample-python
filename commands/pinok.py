@@ -11,8 +11,8 @@ def pinok(token, user_id, stroka='', peer_id=''):
         message=name+' пнул '+str(stroka).capitalize()+' '+'&#127773;'
     # рандомный пинок
     else:
-        user_list=user_list_check(token,peer_id)['items']
-        newmas=[]
+        user_list = user_list_check(token, peer_id)['items']  # для получения списка чел-ов в беседе
+        newmas = []
         # фильтруем от ситуации когда пользователь пинает сам себя
         for user in user_list:
             if user['member_id']!=user_id and user['member_id']>0:
@@ -20,6 +20,7 @@ def pinok(token, user_id, stroka='', peer_id=''):
         random_user_id = newmas[randint(0,len(newmas)-1)]['member_id']
         random_user = name_check(token,random_user_id, 'acc')
         message = name+' пнул @id'+str(random_user_id)+'({0})'.format(random_user)+' &#127773;'
+        print(user_list)
     return message, ''
 
 
