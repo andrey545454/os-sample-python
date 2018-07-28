@@ -18,6 +18,6 @@ def admins_list_check(token, peer_id):  # Список админов бесед
             if user.get('is_admin') is not None:
                 admins_list.append(user['member_id'])
         else:
-            print(user['member_id'])
+            print(user['member_id'])  #check
     del user_list
     return admins_list
