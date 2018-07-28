@@ -14,7 +14,7 @@ def link(token, user_id, stroka='', peer_id=''):
             for user in list_of_users:
                 send_message(user, user, token, message)
         except:
-            print(list_of_subs(token,peer_id))
+            message = str(list_of_subs(token,peer_id))
     else:
         message = 'Ссылочка на стрим: https://www.twitch.tv/poqx'
     return message, ''
