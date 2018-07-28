@@ -5,7 +5,8 @@ import importlib
 from command_system import command_list
 
 
-def damerau_levenshtein_distance(s1, s2):  # алгоритм для распознавания ошибочно написанных команд
+def damerau_levenshtein_distance(s1, s2):
+    """алгоритм для распознавания ошибочно написанных команд"""
     d = {}
     lenstr1 = len(s1)
     lenstr2 = len(s2)
@@ -29,14 +30,16 @@ def damerau_levenshtein_distance(s1, s2):  # алгоритм для распо�
     return d[lenstr1 - 1, lenstr2 - 1]
 
 
-def load_modules():  # подгрузка модулей
+def load_modules():
+    """подгрузка модулей"""
     files = os.listdir("/opt/app-root/src/commands")
     modules = filter(lambda x: x.endswith('.py'), files)
     for m in modules:
         importlib.import_module("commands." + m[0:-3])
 
 
-def get_answer(body, token, user_id, peer_id):  # обработка команды
+def get_answer(body, token, user_id, peer_id):
+    """обработка команды"""
     message = ""
     attachment = ''
     distance = len(body)
@@ -58,7 +61,8 @@ def get_answer(body, token, user_id, peer_id):  # обработка коман�
     return message, attachment
 
 
-def get_answer2(body, stroka, token, user_id, peer_id):  # обработка команды
+def get_answer2(body, stroka, token, user_id, peer_id):
+    """обработка команды"""
     message = ""
     attachment = ''
     for c in command_list:
@@ -67,7 +71,8 @@ def get_answer2(body, stroka, token, user_id, peer_id):  # обработка к
     return message, attachment
 
 
-def create_answer(data, token):  # создание ответа на новое сообщение пользователя
+def create_answer(data, token):
+    """создание ответа на новое сообщение пользователя"""
     load_modules()  # подгрузка модулей
     peer_id = data['peer_id']
     user_id = data['from_id']
