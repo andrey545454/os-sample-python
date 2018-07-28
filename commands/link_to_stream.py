@@ -1,11 +1,17 @@
 # команда для ссылки на стрим покса
 import command_system
-from stat_finder.datachecker import admins_list_check
+from vkapi import send_message
+from stat_finder.datachecker import admins_list_check,list_of_subs
 
 
 def link(token, user_id, stroka='', peer_id=''):
+    # проверка на админа
     if user_id in admins_list_check(token, peer_id):
-        message = 'Ссылка на твой стрим: https://www.twitch.tv/poqx'
+        list_of_users = list_of_subs(token, peer_id)['items']
+        message = 'Стример на Поксе подрубил стрим: https://www.twitch.tv/poqx (тест)'
+        # отправление сообщения каждому пользователю
+        for user in list_of_users:
+            send_message(user, user, token, message)
     else:
         message = 'Ссылочка на стрим: https://www.twitch.tv/poqx'
     return message, ''

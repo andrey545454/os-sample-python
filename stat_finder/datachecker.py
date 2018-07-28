@@ -2,15 +2,18 @@
 from vkapi import api
 
 
-def name_check(token, user_id, name_case=''):  # Распознавание имени пользователя
+def name_check(token, user_id, name_case=''):
+    """Распознавание имени пользователя"""
     return api.users.get(access_token=token,user_ids=user_id, name_case=name_case)[0]['first_name']
 
 
-def user_list_check(token, peer_id):  # Распознавание списка пользователей беседы
+def user_list_check(token, peer_id):
+    """Распознавание списка пользователей беседы"""
     return api.messages.getConversationMembers(access_token=token, peer_id=peer_id)
 
 
-def admins_list_check(token, peer_id):  # Список админов беседы (P.S на всякий случай)
+def admins_list_check(token, peer_id):
+    """Список админов беседы (P.S на всякий случай)"""
     user_list = user_list_check(token, peer_id)['items']  # айдишки находятся в items
     admins_list = []
     for user in user_list:
@@ -19,3 +22,13 @@ def admins_list_check(token, peer_id):  # Список админов бесед
                 admins_list.append(user['member_id'])
     del user_list  # подчистим память
     return admins_list
+
+
+def list_of_subs(token, peer_id):
+    """Список участников группы"""
+    return api.groups.getMembers(access_token=token, group_id='168452415')
+
+
+def user_is_member(token, user_id):
+    """Проверка на участника группы"""
+    api.groups.isMember(access_token=token, group_id='168452415', user_id=user_id)
