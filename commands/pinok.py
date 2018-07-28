@@ -20,7 +20,6 @@ def pinok(token, user_id, stroka='', peer_id=''):
         random_user_id = newmas[randint(0,len(newmas)-1)]['member_id']
         random_user = name_check(token,random_user_id, 'acc')
         message = name+' пнул @id'+str(random_user_id)+'({0})'.format(random_user)+' &#127773;'
-        print(user_list)
     return message, ''
 
 
