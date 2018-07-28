@@ -11,7 +11,11 @@ def link(token, user_id, stroka='', peer_id=''):
         message = r'Стример на Поксе подрубил стрим: https://www.twitch.tv/poqx (тест)'
         # отправление сообщения каждому пользователю
         for user in list_of_users:
-            send_message(user, user, token, message)
+            # ловлю челов которые не писали боту?)
+            try:
+                send_message(user, user, token, message)
+            except:
+                pass
     else:
         message = 'Ссылочка на стрим: https://www.twitch.tv/poqx'
     return message, ''
