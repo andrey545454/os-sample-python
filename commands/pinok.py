@@ -7,7 +7,7 @@ from random import randint
 def pinok(token, user_id, stroka='', peer_id=''):
     name=name_check(token,user_id)
     # направленный пинок
-    if stroka!='':
+    if stroka != '':
         message=name+' пнул '+str(stroka).capitalize()+' '+'&#127773;'
     # рандомный пинок
     else:
@@ -15,12 +15,12 @@ def pinok(token, user_id, stroka='', peer_id=''):
         newmas = []
         # фильтруем от ситуации когда пользователь пинает сам себя
         for user in user_list:
-            if user['member_id']!=user_id and user['member_id']>0:
+            if user['member_id'] != user_id and user['member_id'] > 0:
                 newmas.append(user)
-        random_user_id = newmas[randint(0,len(newmas)-1)]['member_id']
-        random_user = name_check(token,random_user_id, 'acc')
+        random_user_id = newmas[randint(0, len(newmas)-1)]['member_id']
+        random_user = name_check(token, random_user_id, 'acc')
         message = name+' пнул @id'+str(random_user_id)+'({0})'.format(random_user)+' &#127773;'
-        print(user_list)  # чек
+
     return message, ''
 
 
