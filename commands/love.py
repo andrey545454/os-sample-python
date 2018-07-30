@@ -10,7 +10,7 @@ def love(token, user_id, stroka='', peer_id=''):
     return message, ''
 
 
-love_command=command_system.Command()
-love_command.keys=['!люблю']
-love_command.description='Узнай насколько ты любишь [вставить нужное]'
+love_command = command_system.Command()
+love_command.keys = ['!люблю']
+love_command.description = 'Узнай насколько ты любишь [вставить нужное]'
 love_command.process = love
