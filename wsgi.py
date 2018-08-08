@@ -1,13 +1,13 @@
 # Мой файл для работы Flask приложения
-from flask import Flask,request,json
+from flask import Flask, request, json
 import messageHandler
-from settings.settings import token,confirmation_token
+from settings.settings import token, confirmation_token
 
 application = Flask(__name__)
 
 
 # декорирование функции для работы с пост запросами
-@application.route("/", methods = ['POST'])
+@application.route("/bot", methods=['POST'])
 def proccessing():
     data = json.loads(request.data)
     if 'type' not in data.keys():
@@ -20,7 +20,7 @@ def proccessing():
 
 
 # по приколу сделал
-@application.route("/hello")
+@application.route("/")
 def hello():
     return "Flask bot is live!"
 

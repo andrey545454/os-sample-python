@@ -7,7 +7,7 @@ from stat_finder.datachecker import admins_list_check,list_of_subs
 def link(token, user_id, stroka='', peer_id=''):
     # проверка на покса чтобы запустить расссылку
     if str(user_id) == '151635695':
-        #получаем список пользователей
+        # получаем список пользователей
         list_of_users = list_of_subs(token, peer_id)['users']
         message = 'Стример на Поксе подрубил стрим: https://www.twitch.tv/poqx'
         # отправление сообщения каждому пользователю
