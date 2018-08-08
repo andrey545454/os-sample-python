@@ -9,7 +9,7 @@ def biba(token, user_id, stroka='', peer_id=''):
         message = 'Твоя биба 100 см'
     # для всех остальных пользователей
     else:
-        message = 'Твоя биба '+str(randint(1, 50))+'см'
+        message = 'Твоя биба '+str(randint(1, 51))+'см'
     return message, ''
 
 
