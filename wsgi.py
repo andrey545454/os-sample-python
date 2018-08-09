@@ -1,5 +1,5 @@
 # Мой файл для работы Flask приложения
-from flask import Flask, request, json
+from flask import Flask, request, json, render_template
 import messageHandler
 from settings.settings import token, confirmation_token
 
@@ -22,7 +22,7 @@ def proccessing():
 # по приколу сделал
 @application.route("/")
 def hello():
-    return "Flask bot is live!"
+    return render_template('start_page.html')
 
 
 # запуск приложения
