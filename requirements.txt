@@ -2,4 +2,4 @@ gunicorn
 Flask
 vk
 rls-sdk
-psycopg2
+psycopg2-binary
