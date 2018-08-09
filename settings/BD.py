@@ -14,8 +14,7 @@ def get_info():
     """достаём информацию из бд"""
     cur.execute('Select * from bd;')
     for row in cur:
-        print(row)
-
+        return row
 
 cur.close()
 conn.close()
