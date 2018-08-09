@@ -6,8 +6,6 @@ conn = psycopg2.connect(dbname=environ.get('POSTGRESQL_DATABASE'),
                         password=environ.get('POSTGRESQL_PASSWORD'),
                         host=environ.get('POSTGRESQL_SERVICE_HOST'))
 cur = conn.cursor()
-cur.execute("-l")
-cur.execute("-dt")
-print(cur.fetchone())
+cur.execute('Select * from bd;')
 cur.close()
 conn.close()
