@@ -21,8 +21,8 @@ def proccessing():
 
 # по приколу сделал
 @application.route("/")
-def hello():
-    return render_template('start_page.html')
+def table():
+    return render_template('start_page.html', mas=[[]])
 
 
 # запуск приложения
