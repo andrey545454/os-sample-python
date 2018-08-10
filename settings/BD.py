@@ -13,8 +13,7 @@ cur = conn.cursor()
 def get_info():
     """достаём информацию из бд"""
     cur.execute('Select * from bd;')
-    for row in cur:
-        return row
+    return cur.fetchall()
 
 cur.close()
 conn.close()

@@ -1,6 +1,7 @@
 # Мой файл для работы Flask приложения
 from flask import Flask, request, json, render_template
 import messageHandler
+from settings.BD import get_info
 from settings.settings import token, confirmation_token
 
 application = Flask(__name__)
@@ -22,7 +23,8 @@ def proccessing():
 # по приколу сделал
 @application.route("/")
 def table():
-    return render_template('start_page.html', mas=[[]])
+    mas = get_info()
+    return render_template('start_page.html', mas=mas)
 
 
 # запуск приложения
