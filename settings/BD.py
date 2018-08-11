@@ -33,5 +33,3 @@ def update_info(*args):
     cur.execute('UPDATE bd SET (%s) WHERE (%s)', args)
     cur.commit()
 
-
-set_info('Vlad','Vlad')
