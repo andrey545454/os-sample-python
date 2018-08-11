@@ -20,15 +20,18 @@ def get_info():
     return cur.fetchall()
 
 
-def set_info(*args):
+def set_info(name, link):
     """добавляем информацию в бд"""
     cur = connect()
-    cur.execute('INSERT INTO bd (name, link) Values (%s)', args)
+    cur.execute('INSERT INTO bd (name, link, count) Values (%(name)s, %(link)s, %(count)s)', {'name': name,
+                                                                                              'link': link,
+                                                                                              'count': 1})
     cur.commit()
 
 
-def update_info(*args):
+def update_info(count, link):
     """обновляем информацию в бд"""
     cur = connect()
-    cur.execute('UPDATE bd SET (%s) WHERE (%s)', args)
+    cur.execute('UPDATE bd SET count=(%(count)s) WHERE (%(link)s)', {'count': count+1,
+                                                                     'link': link})
     cur.commit()
