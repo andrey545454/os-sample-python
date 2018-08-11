@@ -18,3 +18,17 @@ def get_info():
     cur = connect()
     cur.execute('Select * from bd;')
     return cur.fetchall()
+
+
+def set_info(*args):
+    """добавляем информацию в бд"""
+    cur = connect()
+    cur.execute('INSERT INTO bd (name, link) Values (%s)', args)
+    cur.commit()
+
+
+def update_info(*args):
+    """обновляем информацию в бд"""
+    cur = connect()
+    cur.execute('UPDATE bd SET (%s) WHERE (%s)', args)
+
