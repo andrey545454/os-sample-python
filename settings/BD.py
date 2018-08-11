@@ -31,4 +31,4 @@ def update_info(*args):
     """обновляем информацию в бд"""
     cur = connect()
     cur.execute('UPDATE bd SET (%s) WHERE (%s)', args)
-
+    cur.commit()
