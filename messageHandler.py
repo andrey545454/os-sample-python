@@ -78,14 +78,14 @@ def create_answer(data, token):
     peer_id = data['peer_id']
     user_id = data['from_id']
     body=[str(s) for s in data['text'].lower().split(maxsplit=1)]  # деление сообщения пользователя
-    if len(body)>1:
+    if len(body) > 1:
         # работаем с тем что он написал в сообщении вместе с командой
         message, attachment = get_answer2(body[0], body[1], token, user_id, peer_id)
     else:
         # работаем только с командой
         message, attachment = get_answer(data['text'].lower(), token, user_id, peer_id)
     # отправляем сообщение благодаря vkapi (если сообщение отправили то идём дальше)
-    if vkapi.send_message(user_id,peer_id, token, message, attachment):
+    if vkapi.send_message(user_id, peer_id, token, message, attachment):
         # берём информацию из бд
         database = get_info()
         # ищем пользователя в бд
