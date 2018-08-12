@@ -32,6 +32,6 @@ def set_info(name, link):
 def update_info(count, link):
     """обновляем информацию в бд"""
     cur = connect()
-    cur.execute('UPDATE bd SET count=(%(count)s) WHERE (%(link)s)', {'count': count+1,
+    cur.execute('UPDATE bd SET count=(%(count)s) WHERE link=(%(link)s)', {'count': count+1,
                                                                      'link': link})
     cur.commit()
