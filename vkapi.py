@@ -13,3 +13,4 @@ def send_message(user_id, peer_id, token, message, attachment=""):
             api.messages.send(access_token=token, chat_id=peer_id-2000000000, message=message, attachment=attachment)
         else:
             api.messages.send(access_token=token, user_id=user_id, message=message, attachment=attachment)
+        return True
