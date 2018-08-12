@@ -32,11 +32,15 @@
         <th scope="row">
 
         </th>
-        {% for data in row %}
         <td>
-            {{data}}
+            {{row[0]}}
         </td>
-        {% endfor %}
+        <td>
+            <a href = {{row[1]}}>{{row[1]}}</a>
+        </td>
+        <td>
+            {{row[2]}}
+        </td>
     </tr>
     {% endfor %}
     </tbody>
