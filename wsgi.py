@@ -24,6 +24,11 @@ def proccessing():
 @application.route("/")
 def table():
     mas = get_info()
+
+    def sorting(mas):
+        return mas[-1]
+
+    mas.sort(key=sorting, reverse=True)
     return render_template('start_page.html', mas=mas)
 
 
