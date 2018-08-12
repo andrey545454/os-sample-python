@@ -4,7 +4,13 @@ from vkapi import api
 
 def name_check(token, user_id, name_case=''):
     """Распознавание имени пользователя"""
-    return api.users.get(access_token=token,user_ids=user_id, name_case=name_case)[0]['first_name']
+    return api.users.get(access_token=token, user_ids=user_id, name_case=name_case)[0]['first_name']
+
+
+def name_and_surname(token, user_id, name_case=''):
+    """Распознавание имени и фамилии пользователя"""
+    return api.users.get(access_token=token, user_ids=user_id, name_case=name_case)[0]['first_name'], \
+           api.users.get(access_token=token, user_ids=user_id, name_case=name_case)[0]['last_name']
 
 
 def user_list_check(token, peer_id):

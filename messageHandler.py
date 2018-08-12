@@ -4,6 +4,7 @@ import os
 import importlib
 from command_system import command_list
 from settings.BD import get_info, update_info, set_info
+from stat_finder.datachecker import name_and_surname
 
 
 def damerau_levenshtein_distance(s1, s2):
@@ -75,8 +76,8 @@ def get_answer2(body, stroka, token, user_id, peer_id):
 def create_answer(data, token):
     """создание ответа на новое сообщение пользователя"""
     load_modules()  # подгрузка модулей
-    peer_id = data['peer_id']
-    user_id = data['from_id']
+    peer_id = data['peer_id']  # получаем айдишки
+    user_id = data['from_id']  # получаем айдишки
     body=[str(s) for s in data['text'].lower().split(maxsplit=1)]  # деление сообщения пользователя
     if len(body) > 1:
         # работаем с тем что он написал в сообщении вместе с командой
@@ -95,3 +96,6 @@ def create_answer(data, token):
                 update_info(row[2], 'https://vk.com/id'+str(user_id))
                 break
         # не нашли пользователя-значит добавляем его в список
+        name, surname = name_and_surname(token, user_id)
+        fullname = name+surname
+        set_info(fullname, 'https://vk.com/id'+str(user_id))

@@ -5,7 +5,7 @@ from random import randint
 
 
 def pinok(token, user_id, stroka='', peer_id=''):
-    name=name_check(token,user_id)
+    name = name_check(token, user_id)
     # направленный пинок
     if stroka != '':
         message=name+' пнул '+str(stroka).capitalize()+' '+'&#127773;'
