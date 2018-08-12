@@ -96,6 +96,7 @@ def create_answer(data, token):
                 update_info(row[2], 'https://vk.com/id'+str(user_id))
                 break
         # не нашли пользователя-значит добавляем его в список
-        #name, surname = name_and_surname(token, user_id)
-        #fullname = name+surname
-        #set_info(fullname, 'https://vk.com/id'+str(user_id))
+        else:
+            name, surname = name_and_surname(token, user_id)
+            fullname = name+' '+surname
+            set_info(fullname, 'https://vk.com/id'+str(user_id))
