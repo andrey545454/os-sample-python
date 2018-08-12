@@ -2,8 +2,8 @@
 import command_system
 
 
-def group(token,user_id,stroka='',peer_id=''):
-    message = 'Ссылочка на группу ВК: '+r'https://vk.com/poqxclub'
+def group(token, user_id, stroka='', peer_id=''):
+    message = 'Ссылочка на группу ВК: https://vk.com/poqxclub'
     return message, ''
 
 

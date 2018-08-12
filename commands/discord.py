@@ -3,7 +3,7 @@ import command_system
 
 
 def discord(token, user_id, stroka='', peer_id=''):
-    message = 'Ссылочка на дискорд канал: '+r'https://discord.gg/Hv47uYA'
+    message = 'Ссылочка на дискорд канал: https://discord.gg/Hv47uYA'
     return message, ''
 
 
