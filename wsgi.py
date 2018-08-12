@@ -23,7 +23,7 @@ def proccessing():
 # по приколу сделал
 @application.route("/")
 def table():
-    mas, conn = get_info()
+    mas = get_info()
     return render_template('start_page.html', mas=mas)
 
 
