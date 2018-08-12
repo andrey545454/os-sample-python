@@ -35,3 +35,4 @@ def update_info(count, link):
     cur.execute('UPDATE bd SET count=(%(count)s) WHERE link=(%(link)s)', {'count': count+1,
                                                                           'link': link})
     conn.commit()
+
