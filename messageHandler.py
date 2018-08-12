@@ -3,6 +3,7 @@ import vkapi
 import os
 import importlib
 from command_system import command_list
+from settings.BD import get_info, update_info
 
 
 def damerau_levenshtein_distance(s1, s2):
@@ -84,3 +85,9 @@ def create_answer(data, token):
         # работаем только с командой
         message, attachment = get_answer(data['text'].lower(), token, user_id, peer_id)
     vkapi.send_message(user_id,peer_id, token, message, attachment)  # отправляем сообщение благодаря vkapi
+    # берём информацию из бд
+    mas = get_info()
+    for row in mas:
+        # если пользователь в бд то увеличиваем count
+        if row[1] == 'https://vk.com/id'+str(user_id):
+            update_info(row[2], 'https://vk.com/id'+str(user_id))
