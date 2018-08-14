@@ -19,7 +19,7 @@ def proccessing():
         mas = get_info('black')
         user_id = data['object']['from_id']
         for user in mas:
-            if user[0] == user_id:
+            if user[0] == str(user_id):
                 return 'ok'
         else:
             messageHandler.create_answer(data['object'], token)
