@@ -16,19 +16,28 @@ def proccessing():
     if data['type'] == 'confirmation':
         return confirmation_token
     elif data['type'] == 'message_new':
-        messageHandler.create_answer(data['object'], token)
-        return 'ok'
+        mas = get_info('black')
+        user_id = data['object']['from_id']
+        for user in mas:
+            if user[0] == user_id:
+                return 'ok'
+        else:
+            messageHandler.create_answer(data['object'], token)
+            return 'ok'
 
 
 # по приколу сделал
 @application.route("/")
 def table():
+    # масив данных из бд
     mas = get_info('bd')
 
     def sorting(mas):
+        """сортировка по количеству команд"""
         return mas[-1]
-
+    # делаем массив от большего значения команд до меньшего значения
     mas.sort(key=sorting, reverse=True)
+    # рендерим страничку
     return render_template('start_page.html', mas=mas)
 
 

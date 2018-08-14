@@ -16,8 +16,12 @@ def connect():
 def get_info(name):
     """достаём информацию из бд"""
     cur, conn = connect()
+    # если хотим получить информацию из таблицы bd
     if name == 'bd':
         cur.execute('SELECT * FROM bd;')
+    # если хотим получить информацию из таблицы blacklist
+    elif name == 'black':
+        cur.execute('SELECT * FROM blacklist;')
     return cur.fetchall()
 
 
