@@ -16,7 +16,8 @@ def connect():
 def get_info(name):
     """достаём информацию из бд"""
     cur, conn = connect()
-    cur.execute('Select * from %(name)s;', {'name': name})
+    if name == 'bd':
+        cur.execute('SELECT * FROM bd;')
     return cur.fetchall()
 
 
