@@ -4,8 +4,8 @@ from random import randint
 
 
 def biba(token, user_id, stroka='', peer_id=''):
-    # подкрутка для меня
-    if str(user_id) == '171859787':
+    # подкрутка для меня и влада
+    if str(user_id) == '171859787' or str(user_id) == '148267214':
         message = 'Твоя биба 100 см'
     # для всех остальных пользователей
     else:
