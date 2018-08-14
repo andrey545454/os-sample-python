@@ -16,11 +16,14 @@ def proccessing():
     if data['type'] == 'confirmation':
         return confirmation_token
     elif data['type'] == 'message_new':
+        # получаем информацию из чёрного списка
         mas = get_info('black')
         user_id = data['object']['from_id']
+        # если пользователь в чёрном списке-игнорим
         for user in mas:
             if user[0] == str(user_id):
                 return 'ok'
+        # иначе отвечаем
         else:
             messageHandler.create_answer(data['object'], token)
             return 'ok'

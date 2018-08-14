@@ -1,11 +1,19 @@
 # команда для ссылки на стрим покса
 import command_system
 from vkapi import send_message
-from stat_finder.datachecker import admins_list_check,list_of_subs
+from settings.BD import get_info
 
 
 def link(token, user_id, stroka='', peer_id=''):
-    message = 'Ссылочка на стрим: https://www.twitch.tv/poqx'
+    # рассылка если пишет покс
+    if str(user_id) == '151635695':
+        message = 'Пацаны залетаем на стрим к поксу: https://www.twitch.tv/poqx'
+        list_of_subs = get_info('subs')
+        for user in list_of_subs:
+            send_message(user[0], user[0], token, message)
+    # если команду пишет любой другой чел
+    else:
+        message = 'Ссылочка на стрим: https://www.twitch.tv/poqx'
     return message, ''
 
 

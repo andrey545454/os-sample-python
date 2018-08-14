@@ -22,6 +22,9 @@ def get_info(name):
     # если хотим получить информацию из таблицы blacklist
     elif name == 'black':
         cur.execute('SELECT * FROM blacklist;')
+    # если хотим получить информации из таблицы subs
+    elif name == 'subs':
+        cur.execute('SELECT * FROM subs;')
     return cur.fetchall()
 
 
