@@ -13,10 +13,10 @@ def connect():
     return cur, conn
 
 
-def get_info():
+def get_info(name):
     """достаём информацию из бд"""
     cur, conn = connect()
-    cur.execute('Select * from bd;')
+    cur.execute('Select * from {name};', {name})
     return cur.fetchall()
 
 

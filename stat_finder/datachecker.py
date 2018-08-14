@@ -38,3 +38,11 @@ def list_of_subs(token, peer_id):
 def user_is_member(token, user_id):
     """Проверка на участника группы"""
     api.groups.isMember(access_token=token, group_id='168452415', user_id=user_id)
+
+
+def blacklist(user_id, black_list_table):
+    for x in black_list_table:
+        if x[0] == user_id:
+            return True
+    else:
+        return False

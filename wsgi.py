@@ -16,7 +16,6 @@ def proccessing():
     if data['type'] == 'confirmation':
         return confirmation_token
     elif data['type'] == 'message_new':
-        print(data)
         messageHandler.create_answer(data['object'], token)
         return 'ok'
 
@@ -24,7 +23,7 @@ def proccessing():
 # по приколу сделал
 @application.route("/")
 def table():
-    mas = get_info()
+    mas = get_info('bd')
 
     def sorting(mas):
         return mas[-1]
