@@ -1,6 +1,7 @@
 # Мой файл для работы Flask приложения
 from flask import Flask, request, json, render_template
 import messageHandler
+from stat_finder.datachecker import in_blacklist
 from settings.BD import get_info
 from settings.settings import token, confirmation_token
 
@@ -20,9 +21,8 @@ def proccessing():
         mas = get_info('black')
         user_id = data['object']['from_id']
         # если пользователь в чёрном списке-игнорим
-        for user in mas:
-            if user[0] == str(user_id):
-                return 'ok'
+        if in_blacklist(str(user_id), mas):
+            return 'ok'
         # иначе отвечаем
         else:
             messageHandler.create_answer(data['object'], token)

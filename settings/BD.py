@@ -13,27 +13,30 @@ def connect():
     return cur, conn
 
 
-def get_info(name):
+def get_info(bdname):
     """достаём информацию из бд"""
     cur, conn = connect()
     # если хотим получить информацию из таблицы bd
-    if name == 'bd':
+    if bdname == 'bd':
         cur.execute('SELECT * FROM bd;')
     # если хотим получить информацию из таблицы blacklist
-    elif name == 'black':
+    elif bdname == 'black':
         cur.execute('SELECT * FROM blacklist;')
     # если хотим получить информации из таблицы subs
-    elif name == 'subs':
+    elif bdname == 'subs':
         cur.execute('SELECT * FROM subs;')
     return cur.fetchall()
 
 
-def set_info(name, link):
+def set_info(bdname='', name='', link='', user_id=''):
     """добавляем информацию в бд"""
     cur, conn = connect()
-    cur.execute('INSERT INTO bd (name, link, count) Values (%(name)s, %(link)s, %(count)s)', {'name': name,
-                                                                                              'link': link,
-                                                                                              'count': 1})
+    if bdname == 'bd':
+        cur.execute('INSERT INTO bd (name, link, count) VALUES (%(name)s, %(link)s, %(count)s)', {'name': name,
+                                                                                                  'link': link,
+                                                                                                  'count': 1})
+    elif bdname == 'subs':
+        cur.execute('INSERT INTO subs (id) VALUES %(id)s', {'id': user_id})
     conn.commit()
 
 

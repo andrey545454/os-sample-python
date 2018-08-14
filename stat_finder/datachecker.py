@@ -40,9 +40,10 @@ def user_is_member(token, user_id):
     api.groups.isMember(access_token=token, group_id='168452415', user_id=user_id)
 
 
-def blacklist(user_id, black_list_table):
-    for x in black_list_table:
-        if x[0] == user_id:
+def in_blacklist(user_id, black_list_table):
+    """для проверки пользователя на бан"""
+    for user in black_list_table:
+        if user[0] == user_id:
             return True
     else:
         return False

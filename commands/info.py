@@ -2,7 +2,7 @@
 import command_system
 
 
-def info(token,user_id,stroka='',peer_id=''):
+def info(token, user_id,stroka='', peer_id=''):
     message = ''
     for c in command_system.command_list:
         message += c.keys[0] + ' - ' + c.description + '\n'

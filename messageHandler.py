@@ -69,7 +69,7 @@ def get_answer2(body, stroka, token, user_id, peer_id):
     attachment = ''
     for c in command_list:
         if body in c.keys:
-            message, attachment = c.process(token,user_id,stroka,peer_id)
+            message, attachment = c.process(token, user_id, stroka, peer_id)
     return message, attachment
 
 
@@ -78,7 +78,7 @@ def create_answer(data, token):
     load_modules()  # подгрузка модулей
     peer_id = data['peer_id']  # получаем айдишки
     user_id = data['from_id']  # получаем айдишки
-    body=[str(s) for s in data['text'].lower().split(maxsplit=1)]  # деление сообщения пользователя
+    body = [str(s) for s in data['text'].lower().split(maxsplit=1)]  # деление сообщения пользователя
     if len(body) > 1:
         # работаем с тем что он написал в сообщении вместе с командой
         message, attachment = get_answer2(body[0], body[1], token, user_id, peer_id)
@@ -99,4 +99,4 @@ def create_answer(data, token):
         else:
             name, surname = name_and_surname(token, user_id)
             fullname = name+' '+surname
-            set_info(fullname, 'https://vk.com/id'+str(user_id))
+            set_info(bdname='bd', name=fullname, link='https://vk.com/id'+str(user_id))

@@ -2,7 +2,7 @@
 import command_system
 
 
-def instagram(token, user_id, stroka='',peer_id=''):
+def instagram(token, user_id, stroka='', peer_id=''):
     message = 'Ссылочка на инсту: https://www.instagram.com/p.o.q.x/'
     return message, ''
 
