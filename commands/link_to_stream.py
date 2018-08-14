@@ -12,8 +12,7 @@ def link(token, user_id, stroka='', peer_id=''):
         for user in list_of_subs:
             send_message(user[0], user[0], token, message)
     # если команду пишет любой другой чел
-    else:
-        message = 'Ссылочка на стрим: https://www.twitch.tv/poqx'
+    message = 'Ссылочка на стрим: https://www.twitch.tv/poqx'
     return message, ''
 
 
