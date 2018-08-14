@@ -88,7 +88,7 @@ def create_answer(data, token):
     # отправляем сообщение благодаря vkapi (если сообщение отправили то идём дальше)
     if vkapi.send_message(user_id, peer_id, token, message, attachment):
         # берём информацию из бд
-        database = get_info()
+        database = get_info('bd')
         # ищем пользователя в бд
         for row in database:
             # если пользователь в бд то увеличиваем count
