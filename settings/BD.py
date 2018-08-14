@@ -36,7 +36,7 @@ def set_info(bdname='', name='', link='', user_id=''):
                                                                                                   'link': link,
                                                                                                   'count': 1})
     elif bdname == 'subs':
-        cur.execute('INSERT INTO subs (id) VALUES %(id)s', {'id': user_id})
+        cur.execute('INSERT INTO subs (id) VALUES (%(id)s)', {'id': user_id})
     conn.commit()
 
 
