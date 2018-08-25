@@ -52,7 +52,9 @@ def checker_stats(text):
     # получаем ссылку и пускаем через обработчик
     url = steam_url(text)
     rocket = RocketLeague(api_key=RLApi_token)
+    # получаем инфу об игроке в json файлике
     info = rocket.players.player(id=url, platform=1).json()
+    # достаём всё что нужно
     ranked_seasons = info['rankedSeasons']
     currentSeason = ranked_seasons[max(ranked_seasons)]
     # 1c, 2c, 3cc, 3c
