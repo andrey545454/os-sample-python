@@ -48,16 +48,16 @@ def checker_stats(text):
             'Champion II',
             'Champion III',
             'Grand Champion'
-           ]
+            ]
     # получаем ссылку и пускаем через обработчик
     url = steam_url(text)
     rocket = RocketLeague(api_key=RLApi_token)
     info = rocket.players.player(id=url, platform=1).json()
-    rankedSeasons = info['rankedSeasons']
-    currentSeason = rankedSeasons[max(rankedSeasons)]
+    ranked_seasons = info['rankedSeasons']
+    currentSeason = ranked_seasons[max(ranked_seasons)]
     # 1c, 2c, 3cc, 3c
     duelRank = Ranks[currentSeason['10']['tier']]+'({})'.format(currentSeason['10']['rankPoints'])
     doubleRank = Ranks[currentSeason['11']['tier']]+'({})'.format(currentSeason['11']['rankPoints'])
     soloStandartRank = Ranks[currentSeason['12']['tier']]+'({})'.format(currentSeason['12']['rankPoints'])
     StandartRank = Ranks[currentSeason['13']['tier']]+'({})'.format(currentSeason['13']['rankPoints'])
-    return duelRank,doubleRank,soloStandartRank,StandartRank
+    return duelRank, doubleRank, soloStandartRank, StandartRank
